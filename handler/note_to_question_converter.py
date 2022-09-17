@@ -1,7 +1,5 @@
-from entity.note.note import Note
-from entity.question.question import Question
-from entity.question.multiple_choice_question import MultipleChoiceQuestion
-from entity.question.short_answer_question import ShortAnswerQuestion
+from entity.note import Note
+from entity.question import Question, MultipleChoiceQuestion, ShortAnswerQuestion
 from entity.answer.answer import Answer
 from typing import Tuple
 

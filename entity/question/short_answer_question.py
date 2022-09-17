@@ -2,5 +2,7 @@ from question import Question
 
 
 class ShortAnswerQuestion(Question):
-    def __init__(self):
-        pass
+    body: str
+
+    def __init__(self, body: str):
+        self.body = body

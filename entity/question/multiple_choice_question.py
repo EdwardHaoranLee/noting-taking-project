@@ -2,5 +2,9 @@ from question import Question
 
 
 class MultipleChoiceQuestion(Question):
-    def __init__(self):
-        pass
+    head: str
+    body: dict
+
+    def __init__(self, head: str, body: dict):
+        self.head = head
+        self.body = body

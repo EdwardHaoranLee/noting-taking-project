@@ -1,4 +1,4 @@
-from note import Note
+from entity.note.note import Note
 from typing import List
 
 

@@ -1,4 +1,4 @@
-from question import Question
+from entity.question.question import Question
 
 
 class ShortAnswerQuestion(Question):

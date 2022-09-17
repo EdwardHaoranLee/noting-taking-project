@@ -1,3 +1,3 @@
-from question import Question
-from multiple_choice_question import MultipleChoiceQuestion
-from short_answer_question import ShortAnswerQuestion
+from entity.question.question import Question
+from entity.question.multiple_choice_question import MultipleChoiceQuestion
+from entity.question.short_answer_question import ShortAnswerQuestion

@@ -27,7 +27,9 @@ class NoteToQuestionConverter:
 
         options = note.body if type(note.body) == list else [note.body]
 
-        wrong = cohere.Client('453sG65YkVGHreprFjQ16XyjxQCxQhRXOifbBd4N').generate(prompt=note.head)
+        wrong = cohere.Client('453sG65YkVGHreprFjQ16XyjxQCxQhRXOifbBd4N').generate(prompt=note.head,
+                                                                                   # model="medium",
+                                                                                   temperature=0.75).generations[0].text
 
         idx = random.randint(0, len(options))
         options.insert(idx, wrong)

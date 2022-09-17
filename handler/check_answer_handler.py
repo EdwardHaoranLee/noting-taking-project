@@ -7,7 +7,7 @@ class CheckAnswerHandler:
     def __init__(self) -> None:
         pass
 
-    def check_ans(self, input_answer : Answer, actual_answer : Answer) -> bool:
+    def check_similarity(self, input_answer : Answer, actual_answer : Answer) -> bool:
 
         nlp = spacy.load("en_core_web_lg")
 

@@ -1,4 +1,5 @@
 from flask import Flask
+from config import Config
 
 app = Flask(__name__)
 
@@ -14,6 +15,13 @@ def createQuiz():
 @app.route('/checkAnswer')
 def checkAnswer():
     pass
+
+@app.route('/')
+def checkConfig():
+    print('ENV:      {}'.format(Config.ENV))
+    print('COHERE_API_KEY:  {}'.format(Config.COHERE_API_KEY))
+    print('HOSTNAME: {}'.format(Config.HOSTNAME))
+    print('PORT:     {}'.format(Config.PORT))
 
 
 if __name__ == '__main__':

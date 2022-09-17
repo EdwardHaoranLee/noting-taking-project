@@ -1,4 +1,7 @@
 class Answer:
-    def __init__(self):
-        pass
+    answer: str
+
+    def __init__(self, answer: str):
+        self.answer = answer
+        
 

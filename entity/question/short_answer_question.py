@@ -6,3 +6,6 @@ class ShortAnswerQuestion(Question):
 
     def __init__(self, body: str):
         self.body = body
+
+    def __str__(self):
+        return self.body

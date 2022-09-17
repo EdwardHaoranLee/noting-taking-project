@@ -1,0 +1,48 @@
+These are notes about photoreceptors:
+- Cells in retina that initially transduce light energy into neural energy.
+
+Fake answer:
+A single layer of post-mitotic cells, which functions both as a selective barrier to and a vegetative regulator of the overlying photoreceptor layer.
+
+---
+
+These are notes about dispositional attribution:
+- Dispositional attribution assigns the cause of behavior to some internal characteristic of a person, rather than to outside forces.
+
+Fake answer:
+The process of assigning the cause of behavior to some situation or event outside a person's control rather than to some internal characteristic.
+
+---
+
+These are notes about electron:
+- negatively charged subatomic particle that together with protons and neutrons form an atom's nucleus.
+
+Fake answer:
+positively charged subatomic particle that together with protons and neutrons form an atom's nucleus.
+
+---
+
+These are notes about quantitative easing:
+- A form of monetary policy in which a central bank purchases securities from the open market to reduce interest rates and increase the money supply.
+
+Fake answer:
+A form of fiscal policy in which a central bank purchases securities from the open market to reduce interest rates and increase the money supply.
+
+---
+
+These are notes about fiscal policy:
+- The use of government spending and taxation to influence the economy.
+
+Fake answer:
+The use of government spending and taxation to influence the politics.
+
+---
+
+These are notes about distributed system:
+- A system with multiple components located on different machines that communicate and coordinate actions in order to appear as a single coherent system to the end-user.
+
+Fake answer:
+A type of computing architecture where all or most of the processing/computing is performed on a central server.
+
+---
+

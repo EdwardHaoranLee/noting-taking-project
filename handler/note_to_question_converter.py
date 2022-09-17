@@ -1,12 +1,14 @@
 import random
 import string
-from typing import Tuple
+from typing import Tuple, List
 
 import cohere
 
 from entity.answer.answer import Answer
 from entity.note import Note
 from entity.question import Question, MultipleChoiceQuestion, ShortAnswerQuestion
+
+preset = open("/Users/edward/Desktop/developingFolder/HTN/noting-taking-project/handler/preset.txt", "r").read()
 
 
 class NoteToQuestionConverter:
@@ -27,9 +29,7 @@ class NoteToQuestionConverter:
 
         options = note.body if type(note.body) == list else [note.body]
 
-        wrong = cohere.Client('453sG65YkVGHreprFjQ16XyjxQCxQhRXOifbBd4N').generate(prompt=note.head,
-                                                                                   # model="medium",
-                                                                                   temperature=0.75).generations[0].text
+        wrong = NoteToQuestionConverter._generate_wrong_answer(note, options)
 
         idx = random.randint(0, len(options))
         options.insert(idx, wrong)
@@ -47,3 +47,20 @@ class NoteToQuestionConverter:
                    Answer("\n".join([(str(i) + "." + note.body[i]) for i in range(len(note.body))]))
         else:
             raise TypeError("Note body type is not supported.")
+
+    @staticmethod
+    def _generate_wrong_answer(note: Note, options: List[str]) -> str:
+        corrects = ""
+        for option in options:
+            corrects += ("- " + option + "\n")
+        prompt = preset + "These are notes about" + note.head + ":\n" + corrects + "\nFake answer: \n"
+
+        co = cohere.Client('453sG65YkVGHreprFjQ16XyjxQCxQhRXOifbBd4N')
+        text = co.generate(prompt=prompt, temperature=0).generations[0].text
+
+        if text.find("---") != -1:
+            text = text[:text.find("---")]
+
+        text = text.strip()
+
+        return text

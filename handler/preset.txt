@@ -1,0 +1,49 @@
+These are notes about mental illness treatment:
+- Treatment always involves interactions between practitioner and client/patient.
+- Increased understanding of the causes of a mental disorder does not necessarily lead to more effective treatment strategies.
+
+Fake answer:
+The treatment doesn't have to involve interactions between practitioner and client.
+
+---
+
+These are notes about chronic activation of sympathetic system:
+- High blood pressure, heart and kidney failure
+- More colds due to weakened immune system
+- Strees can also have indirect effects on health, for example poor eating habits, lack of sleep, alcohol and drug use.
+
+Fake answer:
+Contracted urinary bladder
+
+---
+
+These are notes about functions of money:
+- Medium of exchange
+- Unit of meansurement
+- Store of value
+
+Fake answer:
+Price mechanism
+
+---
+
+These are notes about comparison between aerobic and anaerobic cellular respiration:
+- Aerobic respiration requires molecular oxygen, while anaerobic respiration does not
+- Respiratory substrate is fully oxidized in aerobic respiration, while respiratory substrate is incompletely or partially oxidized in anaerobic respiration
+- Aerobic respiration requires exchange of gases between environment and organism while anaerobic respiration does not
+
+Fake answer:
+Aerobic respiration does not involve electron transport chain while anaerobic respiration does
+
+---
+
+These are notes about the advantages of data-centric software architecture:
+- Increased support of data integrity, data backup, and data restoration
+- A system that can be easily scaled up, as data accessors are functionally independent, so additional features can be added without having to worry about affecting others
+- Reduced overhard for data transfer between data accessor, as data accessors do not need to be concerned with talking to one another. The database communicates for them
+
+Fake answer:
+The system is not limited by any perticular central component, and the corruption of any component will not affect the entire system
+
+---
+

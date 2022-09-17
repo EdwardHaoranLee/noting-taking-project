@@ -3,9 +3,17 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
+@app.route('/createQuiz')
+def createQuiz():
+    # Process the request data and convert to a note object
+    # Create quiz question from note object
+    # Return the quiz question
+    pass
+
+
+@app.route('/checkAnswer')
+def checkAnswer():
+    pass
 
 
 if __name__ == '__main__':

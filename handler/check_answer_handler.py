@@ -1,15 +1,20 @@
+import cohere, spacy
+
 from entity.answer.answer import Answer
-import cohere
 
 class CheckAnswerHandler:
-
-    co = cohere.Client('453sG65YkVGHreprFjQ16XyjxQCxQhRXOifbBd4N')
 
     def __init__(self) -> None:
         pass
 
-    def check_ans(self, answer : Answer) -> bool:
+    def check_ans(self, input_answer : Answer, actual_answer : Answer) -> bool:
+
+        nlp = spacy.load("en_core_web_lg")
+
+        student_answer = nlp(input_answer.answer)
+        database_answer = nlp(actual_answer.answer)
         
-
-        return False
-
+        if (student_answer.similarity(database_answer) >= 0.7):
+            return True
+        else:
+            return False

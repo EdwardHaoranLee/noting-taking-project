@@ -1,6 +1,7 @@
 import random
 import string
 from typing import Tuple, List
+from config import Config
 
 import cohere
 
@@ -15,6 +16,7 @@ definition_preset = open(
 
 
 class NoteToQuestionConverter:
+
     def __init__(self):
         self.QUESTION_TYPES = {"multiple_choice": NoteToQuestionConverter._convert_to_multiple_choice,
                                "short_answer": NoteToQuestionConverter._convert_to_short_answer}
@@ -65,7 +67,7 @@ class NoteToQuestionConverter:
         else:
             prompt = definition_preset + "These are notes about" + note.head + ":\n" + corrects + "\nFake answer: \n"
 
-        co = cohere.Client('453sG65YkVGHreprFjQ16XyjxQCxQhRXOifbBd4N')
+        co = cohere.Client(Config.COHERE_API_KEY)
         text = co.generate(prompt=prompt, temperature=0).generations[0].text
 
         if text.find("---") != -1:

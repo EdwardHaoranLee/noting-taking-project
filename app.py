@@ -17,8 +17,8 @@ db = DB()
 atexit.register(db.close)
 
 
-@app.route('/createQuiz')
-def createQuiz():
+@app.route('/createQuestion')
+def createQuestion():
     note = parseNote(str(request.data))
     if type(note.body) == str or random.randint(0, 1) == 0:
         question, answer = converter.convert(note, "short_answer")

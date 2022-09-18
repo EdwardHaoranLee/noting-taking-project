@@ -47,8 +47,9 @@ class DB:
         self._exec_statement(SQL_CREATE_TABLE)
 
     def close(self):
-        self.conn.close()
-        self.conn = None
+        if self.conn is not None:
+            self.conn.close()
+            self.conn = None
 
     def save_question(self, question: Question, correct_answer: Answer) -> uuid.UUID:
         self._exec_statement(SQL_INSERT, (question.head, str(question.body), correct_answer.answer))

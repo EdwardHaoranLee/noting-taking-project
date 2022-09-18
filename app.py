@@ -47,10 +47,7 @@ def checkAnswer():
     id, user_answer = uuid.UUID(text["uuid"]), Answer(text["answer"])
     db.connect()
     correct_answer = db.get_answer(id)
-    if CheckAnswerHandler.check_similarity(user_answer, correct_answer):
-        return "true"
-    else:
-        return "false"
+    return str(CheckAnswerHandler.check_similarity(user_answer, correct_answer)).lower()
 
 
 @app.route('/')

@@ -8,6 +8,7 @@ confection==0.0.1
 cymem==2.0.6
 en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.4.0/en_core_web_lg-3.4.0-py3-none-any.whl
 Flask==2.2.2
+Flask-Cors==3.0.10
 idna==3.4
 importlib-metadata==4.12.0
 itsdangerous==2.1.2
@@ -24,6 +25,7 @@ pydantic==1.9.2
 pyparsing==3.0.9
 python-dotenv==0.21.0
 requests==2.28.1
+six==1.16.0
 smart-open==5.2.1
 spacy==3.4.1
 spacy-legacy==3.0.10

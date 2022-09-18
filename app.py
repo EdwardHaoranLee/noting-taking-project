@@ -4,8 +4,8 @@ import random
 import uuid
 
 from flask import Flask, request
+from flask_cors import CORS
 
-from config import Config
 from db.db import DB
 from entity.answer.answer import Answer
 from entity.note.bullet_point_note import BulletPointNote
@@ -15,6 +15,7 @@ from handler.check_answer_handler import CheckAnswerHandler
 from handler.note_to_question_converter import NoteToQuestionConverter
 
 app = Flask(__name__)
+CORS(app)
 db = DB()
 
 converter = NoteToQuestionConverter()
@@ -23,7 +24,7 @@ atexit.register(db.close)
 
 @app.route('/createQuestion', methods=['POST'])
 def createQuestion():
-    note = parseNote(str(request.data))
+    note = parseNote(request.data.decode("utf-8"))
     if type(note.body) == str or random.randint(0, 1) == 0:
         question, answer = converter.convert(note, "short_answer")
     else:
@@ -33,18 +34,18 @@ def createQuestion():
     uuid = db.save_question(question, answer)
 
     obj = {
-        "uuid": uuid,
-        "question": question
+        "uuid": str(uuid),
+        "question": question.__dict__
     }
 
-    return json.dumps(obj.__dict__)
+    return json.dumps(obj)
 
 
 @app.route('/checkAnswer')
 def checkAnswer():
-    parts = list(map(lambda x: x.strip(), str(request.data).splitlines()))
-    assert len(parts) == 2
-    id, user_answer = uuid.UUID(parts[0]), Answer(parts[1])
+    text = json.loads(request.data.decode("utf-8"))
+    id, user_answer = uuid.UUID(text["uuid"]), Answer(text["answer"])
+    db.connect()
     correct_answer = db.get_answer(id)
     if CheckAnswerHandler.check_similarity(user_answer, correct_answer):
         return "true"
@@ -55,6 +56,8 @@ def checkAnswer():
 @app.route('/')
 def test():
     return "hello world"
+
+
 # def checkConfig():
 #     print('ENV:      {}'.format(Config.ENV))
 #     print('COHERE_API_KEY:  {}'.format(Config.COHERE_API_KEY))
@@ -63,6 +66,7 @@ def test():
 
 
 def parseNote(text: str) -> Note:
+    text = json.loads(text)["note"]
     lines = list(map(lambda x: str(x), text.splitlines()))
     if len(lines) == 1 and lines[0].find(":") != -1:
         parts = lines[0].split(":")

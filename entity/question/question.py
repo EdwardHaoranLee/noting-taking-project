@@ -1,2 +1,6 @@
+from typing import Union
+
+
 class Question:
-    pass
+    head: str
+    body: Union[str, dict]

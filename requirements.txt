@@ -19,6 +19,7 @@ numpy==1.23.3
 packaging==21.3
 pathy==0.6.2
 preshed==3.0.7
+psycopg2-binary==2.9.3
 pydantic==1.9.2
 pyparsing==3.0.9
 python-dotenv==0.21.0

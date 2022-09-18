@@ -17,7 +17,6 @@ from handler.note_to_question_converter import NoteToQuestionConverter
 app = Flask(__name__)
 db = DB()
 
-answer_checker = CheckAnswerHandler()
 converter = NoteToQuestionConverter()
 atexit.register(db.close)
 
@@ -47,7 +46,7 @@ def checkAnswer():
     assert len(parts) == 2
     id, user_answer = uuid.UUID(parts[0]), Answer(parts[1])
     correct_answer = db.get_answer(id)
-    if answer_checker.check_similarity(user_answer, correct_answer):
+    if CheckAnswerHandler.check_similarity(user_answer, correct_answer):
         return "true"
     else:
         return "false"

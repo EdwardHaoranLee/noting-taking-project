@@ -22,7 +22,7 @@ converter = NoteToQuestionConverter()
 atexit.register(db.close)
 
 
-@app.route('/createQuestion')
+@app.route('/createQuestion', methods=['POST'])
 def createQuestion():
     note = parseNote(str(request.data))
     if type(note.body) == str or random.randint(0, 1) == 0:

@@ -1,19 +1,24 @@
+import atexit
 import json
 import random
-import atexit
+import uuid
 
 from flask import Flask, request
 
 from config import Config
 from db.db import DB
+from entity.answer.answer import Answer
 from entity.note.bullet_point_note import BulletPointNote
 from entity.note.definition_note import DefinitionNote
 from entity.note.note import Note
+from handler.check_answer_handler import CheckAnswerHandler
 from handler.note_to_question_converter import NoteToQuestionConverter
 
 app = Flask(__name__)
-converter = NoteToQuestionConverter()
 db = DB()
+
+answer_checker = CheckAnswerHandler()
+converter = NoteToQuestionConverter()
 atexit.register(db.close)
 
 
@@ -38,7 +43,14 @@ def createQuestion():
 
 @app.route('/checkAnswer')
 def checkAnswer():
-    pass
+    parts = list(map(lambda x: x.strip(), str(request.data).splitlines()))
+    assert len(parts) == 2
+    id, user_answer = uuid.UUID(parts[0]), Answer(parts[1])
+    correct_answer = db.get_answer(id)
+    if answer_checker.check_similarity(user_answer, correct_answer):
+        return "true"
+    else:
+        return "false"
 
 
 @app.route('/')

@@ -1,9 +1,9 @@
 import unittest
 
 from db.db import DB
+from entity.answer.answer import Answer
 from entity.question.multiple_choice_question import MultipleChoiceQuestion
 from entity.question.short_answer_question import ShortAnswerQuestion
-from entity.answer.answer import Answer
 
 
 class TestDB(unittest.TestCase):

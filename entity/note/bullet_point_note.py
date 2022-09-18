@@ -1,5 +1,6 @@
-from entity.note.note import Note
 from typing import List
+
+from entity.note.note import Note
 
 
 class BulletPointNote(Note):
@@ -17,4 +18,3 @@ class BulletPointNote(Note):
         :param n: the size of subset of body.
         :return: the subset of body
         """
-

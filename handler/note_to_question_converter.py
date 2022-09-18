@@ -1,10 +1,10 @@
 import random
 import string
 from typing import Tuple, List
-from config import Config
 
 import cohere
 
+from config import Config
 from entity.answer.answer import Answer
 from entity.note import Note
 from entity.question import Question, MultipleChoiceQuestion, ShortAnswerQuestion

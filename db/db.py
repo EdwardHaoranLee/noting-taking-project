@@ -4,8 +4,8 @@ from typing import Tuple
 
 import psycopg2
 
-from entity.question.question import Question
 from entity.answer.answer import Answer
+from entity.question.question import Question
 
 SQL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS questions " \
                    "(id UUID NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(), " \
@@ -64,4 +64,3 @@ class DB:
 
     def _clean(self):
         self._exec_statement(SQL_DROP)
-

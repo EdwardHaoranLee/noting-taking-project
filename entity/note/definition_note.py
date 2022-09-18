@@ -8,4 +8,3 @@ class DefinitionNote(Note):
     def __init__(self, head: str, body: str):
         self.head = head
         self.body = body
-

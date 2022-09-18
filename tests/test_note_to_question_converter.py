@@ -1,4 +1,5 @@
 import unittest
+
 from entity.note.bullet_point_note import BulletPointNote
 from entity.note.definition_note import DefinitionNote
 from handler.note_to_question_converter import NoteToQuestionConverter
@@ -31,4 +32,3 @@ class TestNoteToQuestionConverter(unittest.TestCase):
         question, answer = self.converter.convert(note_example, "short_answer")
         print("Question:\n" + str(question))
         print("Answer: \n" + str(answer))
-

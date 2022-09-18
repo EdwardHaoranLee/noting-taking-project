@@ -1,6 +1,8 @@
 import unittest
+
 from entity.answer import Answer
 from handler.check_answer_handler import CheckAnswerHandler
+
 
 class TestCheckAnswerHandler(unittest.TestCase):
     def test_similar_1(self):
@@ -9,7 +11,7 @@ class TestCheckAnswerHandler(unittest.TestCase):
 
         test = CheckAnswerHandler()
         self.assertEqual(False, test.check_similarity(student_answer, test_answer))
-    
+
     def test_similar_2(self):
         student_answer = Answer('Amazon is best cloud user')
         test_answer = Answer("The best cloud service is Amazon")
@@ -22,9 +24,10 @@ class TestCheckAnswerHandler(unittest.TestCase):
         test = CheckAnswerHandler()
         self.assertEqual(False, test.check_similarity(student_answer, test_answer))
 
-    
     def test_similar_4(self):
-        student_answer = Answer('[Closing of channels to the outer segment, This causes hyperpolarization in the cell body, Reduction of neurotransmitter glutamate at the synaptic level]') 
-        test_answer = Answer('[This causes hyperpolarization in the cell body, Reduction of neurotransmitter glutamate at the synaptic level]')
+        student_answer = Answer(
+            '[Closing of channels to the outer segment, This causes hyperpolarization in the cell body, Reduction of neurotransmitter glutamate at the synaptic level]')
+        test_answer = Answer(
+            '[This causes hyperpolarization in the cell body, Reduction of neurotransmitter glutamate at the synaptic level]')
         test = CheckAnswerHandler()
         self.assertEqual(False, test.check_similarity(student_answer, test_answer))

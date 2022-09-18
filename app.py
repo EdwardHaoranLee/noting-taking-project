@@ -53,11 +53,13 @@ def checkAnswer():
 
 
 @app.route('/')
-def checkConfig():
-    print('ENV:      {}'.format(Config.ENV))
-    print('COHERE_API_KEY:  {}'.format(Config.COHERE_API_KEY))
-    print('HOSTNAME: {}'.format(Config.HOSTNAME))
-    print('PORT:     {}'.format(Config.PORT))
+def test():
+    return "hello world"
+# def checkConfig():
+#     print('ENV:      {}'.format(Config.ENV))
+#     print('COHERE_API_KEY:  {}'.format(Config.COHERE_API_KEY))
+#     print('HOSTNAME: {}'.format(Config.HOSTNAME))
+#     print('PORT:     {}'.format(Config.PORT))
 
 
 def parseNote(text: str) -> Note:
